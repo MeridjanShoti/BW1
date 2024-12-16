@@ -1,0 +1,28 @@
+body{
+    text-align: center;
+    background-image: url(../img/bg.jpg);
+    color: white;
+}
+header{
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+}
+header h1{
+    font-size: xx-large;
+    font-weight: 900;
+    
+}
+.ris{
+    display: inline-block;
+    padding: 6rem;
+
+}
+#piccolo{
+    font-size: small;
+}
+.u{
+    font-size: xx-large;
+}
+footer{
+    font-size: large;
+}
