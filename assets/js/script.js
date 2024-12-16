@@ -109,6 +109,8 @@ function generaSummary(risposte) {
   // Calcola le percentuali
   const percentualeGiuste = (risposteGiuste / risposte.length) * 100;
   const percentualeSbagliate = (risposteSbagliate / risposte.length) * 100;
+  
+
 
   // Genera il summary
   const summary = {
@@ -121,6 +123,14 @@ function generaSummary(risposte) {
 
   return summary;
 }
+/*let box=document.createElement('section');
+  let correct =document.querySelector('main div p');
+  correct.appendChild(box);
+  box.appendChild(percentualeGiuste);
+  let box1=document.createElement('section');
+  let nocorrect=document.getElementById("sbagliato");
+  nocorrect.appendChild(box1);
+  box1.appendChild(percentualeSbagliate);*/
 
 // Genera il summary
 const summary = generaSummary(risposte);
