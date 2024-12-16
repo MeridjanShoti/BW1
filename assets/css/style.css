@@ -22,11 +22,6 @@ cosi ognuno puo modificare la propria pagina dalla sezione main in poi senza toc
 */
 
 /* Questi sono i tag con le caratteristiche uguali per tutti */
-
-html{
-    font-size: 62.5%;
-}
-
 body{
     background-image: url(../img/bg.jpg);
     background-size: cover;
@@ -70,36 +65,30 @@ header div{
 
 /* CSS creato da Timoteo per la sua pagina */
 
-form button {
-    margin: 1em;
-    padding: 1em 2em;
-    background-color: #2E2E5E;
-    color: #fff;
-    border: 3px solid transparent;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+form {
+    width: 50%;
+    margin: 0 auto;
 }
 
-form button::after {
-    content: '';
-    position: absolute;
-    height: 130%;
-    width: 106%;
-    border-radius: 30px;
-    background-image: linear-gradient(to bottom right, rgba(255,255,255,1.0), rgba(255,255,255,0.2));
-    z-index: -1;
+form button {
+    margin: 0.75em 1.5em;
+    padding: 1em 2em;
+    border: 3px solid transparent;
+    color: white;
+    background:
+      linear-gradient(170deg, rgba(46, 46, 94, 0.8),rgba(46, 46, 94, 0.5)) padding-box,
+      linear-gradient(170deg, #fff, transparent) border-box;
+    border-radius:1000px;
+    font-size: 1em;
+    width: 40%;
+    height: 4.5em;
+    font-weight: 900;
 }
 
 form button:hover {
-    background-color: #FF1E8E;
+    background:
+    linear-gradient(170deg, #900080,#D20094) padding-box,
+    linear-gradient(170deg, #fff, #D20094) border-box;
   }
 
 /* Fine CSS creato da Timoteo per la sua pagina */

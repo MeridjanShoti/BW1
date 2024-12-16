@@ -119,18 +119,14 @@ if (window.location.href.match('test.html') != null) {
         },
       ];
 
-let timer = document.querySelector("#timer")
-let second = document.createElement('p')
-second.innerText = '59'
-timer.appendChild(second)
 
 
-
-/* for (let i = 0; i < questions.length; i++) {
+let form = document.querySelector('form')
+for (let i = 0; i < 4; i++) {
     let button = document.createElement('button')
     button.innerHTML = questions[i].correct_answer
     form.appendChild(button)
-} */
+}
 
 
 
