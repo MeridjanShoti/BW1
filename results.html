@@ -3,10 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Results</title>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
+<header><div class="logoEpicode"></div></header>
+<main>
+    <h1>Results</h1>
+    <h2>The summary of your answers</h2>
+    <div>
+        <div>
+            <p>Correct</p>
+        </div>
+        <div>
+            <canvas id="myDoughnutChart" width="400" height="400"></canvas>
+            <div>
+
+            </div>
+        </div>
+        <div>
+            Wrong
+        </div>
+    </div>
+    <button>RATE US</button>
+</main>
+<script>
+    // Recupera il contesto del canvas
+    const ctx = document.getElementById('myDoughnutChart').getContext('2d');
+
+    // Crea il grafico a ciambella
+    const myDoughnutChart = new Chart(ctx, {
+        type: 'doughnut', // Specifica il tipo di grafico
+        data: {
+            labels: ['Rosso', 'Blu', 'Giallo', 'Verde', 'Viola'], // Etichette per i segmenti
+            datasets: [{
+                label: 'Dataset 1',
+                data: [12, 19, 3, 5, 2], // Dati per ciascun segmento
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)', // Rosso
+                    'rgba(54, 162, 235, 0.6)', // Blu
+                    'rgba(255, 206, 86, 0.6)', // Giallo
+                    'rgba(75, 192, 192, 0.6)', // Verde
+                    'rgba(153, 102, 255, 0.6)'  // Viola
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top', // Posizione della legenda
+                },
+                tooltip: {
+                    enabled: true, // Abilita i tooltip
+                }
+            }
+        }
+    });
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
