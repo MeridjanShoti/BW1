@@ -6,10 +6,10 @@
 cosi ognuno puo modificare la propria pagina dalla sezione main in poi senza toccare i tag precedenti.
 
 <body>
-    <section id="pageWrapper">
+    <section class="pageWrapper">
     <header>
         <div>
-            <img id="logoEpicode" src="./assets/img/epicode_logo.png" alt="Epicode Logo">
+            <img class="logoEpicode" src="./assets/img/epicode_logo.png" alt="Epicode Logo">
         </div>   
     </header>
     <main>
@@ -29,26 +29,17 @@ body{
     background-repeat: no-repeat;    
 }
 
-#pageWrapper{
+.pageWrapper{
     width: 80%;
-    margin: auto;
-    
-}
-
-#logo{
-    background-image: url(../img/epicode_logo.png);
-    
-    background-repeat: no-repeat;
+    margin: auto;   
 }
 
 header div{
   margin-top: 3em;
-
 }
 
-#logoEpicode{
+.logoEpicode{
     height: 3em;
-
 }
 
 
