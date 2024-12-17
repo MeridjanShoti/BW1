@@ -277,10 +277,8 @@ function answer(a) {
   clearInterval(timerInterval);
   console.log(a);
   if (a === questions[questionNumber].correct_answer ) {
-    alert("Risposta Corretta");
     totAnswersCorrects +=1;
   } else {
-    alert("Risposta Errata")
     totAnswersIncorrects +=1;
   }
 console.log(totAnswersCorrects)
