@@ -9,7 +9,7 @@ let proceed = document.querySelector('#proceed')
 let checkAndGo = function (){
     if (termsConditions.checked && termsConditions.value === "ok"){
 
-        window.location.href = "./test" } else {
+        window.location.href = "./test.html" } else {
             window.alert("Flag Your Promise or Go Home !!!")
         }
 
