@@ -14,9 +14,9 @@ let checkAndGo = function (){
         }
 
 }
-}
-proceed.addEventListener('click', checkAndGo)
 
+proceed.addEventListener('click', checkAndGo)
+}
 // Fine script prima pagina
 
 // Codice aggiunto da Timoteo per la sua pagina 
