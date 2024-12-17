@@ -137,6 +137,9 @@ let h1 = document.createElement('h1')
 h1.innerHTML = questions[n].question
 question.appendChild(h1)
 
+let footer = document.querySelector('footer p')
+footer.innerHTML = `question ${n+1} <span> / ${questions.length}</span>`;
+
 // Aggiungo le risposte in un array 
 let form = document.querySelector('form');
 
@@ -180,7 +183,7 @@ const COLOR_CODES = {
 };
 
 
-const TIME_LIMIT = 10;
+const TIME_LIMIT = 120;
 let timePassed = 0;
 let timeLeft = TIME_LIMIT;
 let timerInterval = null;
