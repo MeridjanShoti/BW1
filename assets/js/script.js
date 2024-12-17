@@ -315,10 +315,10 @@ const stars = document.querySelectorAll ('.star')
 const starsContainer = document.querySelector ('#star-container')
 
 let selectedValue = 0;
-
+//evidenzio le stelle
 function highlightStars (value) {
     stars.forEach (star => {
-        if (star.dataset.value <= value) { //dataset è per poter leggerere datavalue in html 
+        if (star.dataset.value <= value) { //dataset è per poter leggerere datavalue (stelle) in html 
             star.classList.add ('selected');
 
         } else {
@@ -327,7 +327,7 @@ function highlightStars (value) {
         }
     });
 }
-//evidenzio le stelle
+
 stars.forEach (star => {
     star.addEventListener('mouseover',() => {
         highlightStars (star.dataset.value);
