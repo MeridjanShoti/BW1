@@ -1,5 +1,103 @@
+/* font Inter e Outfit  */
+/*@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap');*/
+
+/* Impostazione della pagina e logo */
+/* copio lo snippet HTML di seguito cosi si può copiare ed incollare.
+cosi ognuno puo modificare la propria pagina dalla sezione main in poi senza toccare i tag precedenti.
+
+<body>
+    <section id="pageWrapper">
+    <header>
+        <div>
+            <img id="logoEpicode" src="./assets/img/epicode_logo.png" alt="Epicode Logo">
+        </div>   
+    </header>
+    <main>
+        
+    </main>
+    </section>
+    <script src="./assets/js/script.js"></script>
+</body>
+
+*/
+
+/* Questi sono i tag con le caratteristiche uguali per tutti */
 body {
     text-align: center;
 
 }
+
+
+body{
+    background-image: url(../img/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;    
+}
+
+#pageWrapper{
+    width: 80%;
+    margin: auto;
+   
+    
+}
+
+header{
+    height: 20‰;
+}
+
+header div{
+  margin-top: 3em;
+
+}
+
+#logoEpicode{
+    height: 3em;
+
+}
+
+
+/* fine tag uguali per tutti */
+
+/* Codici colori e relative classi */
+
+
+.pink{
+    color: #D20094;
+    color: #900080;
+}
+
+.neonBlue{
+    color: #00FFFF;
+}
+
+/*Css Juliet*/
+
+div h1 {
+    font-size: 3em;
+    color: white;
+    font-family:  "Outfit", sans-serif;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+.partesopra {
+    padding: 3em;
+    margin: 2em;
+}
+
+.partesopra p {
+    color: white;
+    font-family: "Inter", sans-serif;
+    font-size: 1em;
+}
+
+.star {
+    font-size: 4rem;
+   color:  #060a2d ;
+   cursor: pointer;
+}
+
+
+
+
+
 

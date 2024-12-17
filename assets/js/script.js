@@ -1,5 +1,6 @@
 function Createstars (){
-    const stars = document.querySelector ('.stars')
-    const creationstars = [ ]
+    const stars = document.querySelector ('.star')
+    
+    
     
 }

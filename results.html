@@ -5,39 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/reset.css">
 
 </head>
 <body>
-    <main>
-        <div class="inizio">
+    <section id="pageWrapper">
+        <header>
             <div>
-            <h1>Tell us how it's going</h1>
-            </div>
-            <div>
-                <p>From 0 to 10, how likely are you to recommend EPICODE to a friend or a colleague? </p>
+                <img id="logoEpicode" src="./assets/img/epicode_logo.png" alt="Epicode Logo">
+            </div>   
+        </header>
+        <main>
+            <div class="partesopra"></divclass>
+                <h1>Tell us how it's going</h1>
+                <p>From 0 to 10, how likely are you to recommend EPICODE <br>to a friend or a colleague? </p>
+                
+          
+            <div id="rating-container" >
+                <span class="star" data-value="1">&#9733</span>
+                <span class="star" data-value="2">&#9733</span>
+                <span class="star" data-value="3">&#9733</span>
+                <span class="star" data-value="4">&#9733</span>
+                <span class="star" data-value="5">&#9733</span>
+                <span class="star" data-value="6">&#9733</span>
+                <span class="star" data-value="7">&#9733</span>
+                <span class="star" data-value="8">&#9733</span>
+                <span class="star" data-value="9">&#9733</span>
+                <span class="star" data-value="10">&#9733</span>
+    
             </div>
         </div>
-        <div class="stars">
-            <!-- Contenitore vuoto per le stelline-->
-
-        </div>
-        <div>
             <div>
-                <p>Leave us an open feedback about your experience so far</p>
                 <div>
-                    <input type="text" name="text" placeholder="Write your comment here" required>
+                    <p>Leave us an open feedback about your experience so far</p>
                     <div>
-                        <button> MORE INFO </button>
+                        <input type="text" name="text" placeholder="Write your comment here" required>
+                        <div>
+                            <button> MORE INFO </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-    </main>
-
-
-
-    <script src="./assets/js/script.js"></script>
+    
+        </main>
+    </section>
+        <script src="./assets/js/script.js"></script>
+    
 </body>
 </html>
