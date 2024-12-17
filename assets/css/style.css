@@ -29,7 +29,7 @@ cosi ognuno puo modificare la propria pagina dalla sezione main in poi senza toc
 body{
     background-image: url(../img/bg.jpg);
     background-size: cover;
-    background-repeat: no-repeat;   
+    background-repeat: no-repeat;    
 }
 
 
@@ -139,119 +139,38 @@ h1 b{
 
 /* CSS creato da Timoteo per la sua pagina */
 
-.timer {
-    text-align: center;
-    color: white;
-    font-family: "Outfit", sans-serif;
-    font-size: 3em;
-    margin-top: -3.5em;
-    float: inline-end;
-    margin-right: 25%;
-    height: 3em;
-}
-
-.timer p {
-    font-size: 0.18em;
-    margin-bottom: 4em;
-    text-transform: uppercase;
-    line-height: 2.5em;
-    position: relative;
-    top: -12.75em;
-}
-
-.base-timer {
-    position: relative;
-    width: 3em;
-    height: 3em;
-}
-  
-.base-timer__svg {
-    transform: scaleX(-1);
-}
-  
-.base-timer__circle {
-    fill: none;
-    stroke: none;
-}
-  
-.base-timer__path-elapsed {
-    stroke-width: 10px;
-    stroke: rgba(128, 128, 128, 0.2);
-}
-  
-.base-timer__path-remaining {
-    stroke-width: 10px;  
-    transform-origin: center;
-    transition: 1s linear all;
-    fill-rule: nonzero;
-    stroke: currentColor;
-    transform: rotate(90deg);
-}
-  
-.base-timer__path-remaining.green {
-    stroke: #00FFFF;
-}
-  
-.base-timer__path-remaining.orange {
-    color: orange;
-}
-  
-.base-timer__path-remaining.red {
-    color: red;
-}
-  
-.base-timer__label {
-    position: absolute;
-    width: 3em;
-    height: 3em;
-    top: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 48px;
-}
-
-.question {
-    text-align: center;
-    color: #fff;
-    font-family: "Outfit", sans-serif;
-    font-size: 3.5em;
-    margin: 4em auto 2em auto;
-    width: 50%;
-    height: 3.5em;
-}
-
-form {
-    width: 50%;
-    margin: 0 auto;
-    font-family: "Inter", sans-serif;
-}
-
 form button {
-    margin: 1.5% 2.5%;
+    margin: 1em;
     padding: 1em 2em;
+    background-color: #2E2E5E;
+    color: #fff;
     border: 3px solid transparent;
-    color: white;
-    background:
-      linear-gradient(170deg, rgba(46, 46, 94, 0.8) 2%,rgba(46, 46, 94, 0.5)20%, rgba(46, 46, 94, 0.1)) padding-box,
-      linear-gradient(170deg, #fff 2%, rgba(255, 255, 255, 0.5) 4%, transparent) border-box;
-    border-radius:1000px;
-    font-size: 1em;
-    width: 44.5%;
-    height: 4.5em;
-    font-weight: 900;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form button::after {
+    content: '';
+    position: absolute;
+    height: 130%;
+    width: 106%;
+    border-radius: 30px;
+    background-image: linear-gradient(to bottom right, rgba(255,255,255,1.0), rgba(255,255,255,0.2));
+    z-index: -1;
 }
 
 form button:hover {
-    background:
-    linear-gradient(170deg, #900080,#D20094) padding-box,
-    linear-gradient(170deg, #fff, #D20094) border-box;
-    cursor: pointer;
-  }
-
-footer {
-
+    background-color: #FF1E8E;
 }
+
 /* Fine CSS creato da Timoteo per la sua pagina */
 
 
