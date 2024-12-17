@@ -1,3 +1,4 @@
+
 // Inizio script prima pagina
 if (window.location.href.match('index.html') != null) {
 
@@ -394,4 +395,47 @@ console.log("Summary delle risposte:");
 console.log(`Totale risposte: ${summary.totaleRisposte}`);
 console.log(`Corrette: ${summary.corrette} (${summary.percentualeCorrette}%)`);
 console.log(`Sbagliate: ${summary.sbagliate} (${summary.percentualeSbagliate}%)`);
+
+//chart meridjan
+let correct = 66.7
+        let wrong = 33.3
+        let correctRate = "X/Z"
+        let wrongRate = "Y/Z"
+        let numberOfQuestions= 20
+        let numberOfCorrect = 15
+        let numberOfWrong = 5 
+        document.getElementById("correctPerc").innerText= correct + "%";
+        document.getElementById("wrongPerc").innerText= wrong + "%";
+        document.getElementById("correctRate").innerText= `${numberOfCorrect}/${numberOfQuestions} questions`;
+        document.getElementById("wrongRate").innerText=`${numberOfWrong}/${numberOfQuestions} questions`;
+        if(correct>=60){
+            document.getElementById("p1").innerText="Congratulations!";
+            document.getElementById("p2").innerText="You passed the exam.";
+            document.getElementById("p3").innerText="We'll send you the certificate in few minutes."
+            document.getElementById("p4").innerText="Check your email (including promotions / spam)";
+        }
+        else{
+            document.getElementById("p1").innerText="Sorry!";
+            document.getElementById("p2").innerText="You didn't passed the exam.";
+            document.getElementById("p3").innerText="You can retry to get the certification by consulting your teacher.";
+        }
+        const ctx = document.getElementById('myChart');
+      
+        new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                label: 'answers',
+                data: [wrong, correct],
+                borderWidth: 0,
+                backgroundColor: ["#C2128D", "#00FFFF"]
+            }]
+        },
+        options: {
+            cutout: '70%',
+        }
+    });
+
+
 }
+
