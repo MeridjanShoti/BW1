@@ -1,0 +1,166 @@
+/* font Inter e Outfit  */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap');
+
+/* Impostazione della pagina e logo */
+/* copio lo snippet HTML di seguito cosi si può copiare ed incollare.
+cosi ognuno puo modificare la propria pagina dalla sezione main in poi senza toccare i tag precedenti.
+
+<body>
+    <section class="pageWrapper">
+    <header>
+        <div>
+            <img class="logoEpicode" src="./assets/img/epicode_logo.png" alt="Epicode Logo">
+        </div>   
+    </header>
+    <main>
+        
+    </main>
+    </section>
+    <script src="./assets/js/script.js"></script>
+</body>
+
+*/
+
+/* Questi sono i tag con le caratteristiche uguali per tutti */
+
+body{
+    background-image: url(../img/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;    
+}
+
+.pageWrapper{
+    width: 80%;
+    margin: auto;   
+}
+
+header div{
+  margin-top: 3em;
+}
+
+.logoEpicode{
+    height: 3em;
+}
+
+
+/* fine tag uguali per tutti */
+
+/* css prima pagina */
+main{
+    font-family: Outfit;
+    
+    color: white;
+    margin-top: 4em;
+}
+
+#h1Prima{
+    font-weight: 400;
+    font-size: 5em;
+    width: 50%;
+   }
+
+h1 b{
+    font-weight: bold;
+}
+
+#h2Prima{
+    margin: 2em 0 2em 0;
+    width: 50%;
+
+}
+#h2Prima h2{
+    color: #D20094;
+    font-weight: bold;
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+#h2Prima p{
+    font-family: Inter;
+    font-size: 1.1em;
+    color: white;
+    font-weight: 400;
+    line-height: 1.2em;
+}
+
+#unorderList{
+    margin: 2em 1em 2em 1em;
+    font-family: Inter;
+    font-size: 1.1em;
+    font-weight: 400;
+    line-height: 1.5em;
+}
+
+#unorderList li b{
+    font-weight: bold;
+}
+
+#terms{
+    margin-top: 4em;   
+    position: relative;
+}
+
+#proceed{
+    float: right;
+}
+
+.neonButton{
+    font-size: 1.5em;
+    font-weight: bold;
+    background-color: #00FFFF ;
+    color: #17192c;
+    padding: 0.8em 2em ;
+    border: none;
+    box-shadow: 0px 0px 21px 0px #00FFFF;
+    margin-top: -1em;
+}
+
+/* fine css prima pagina */
+
+/* Codici colori e relative classi */
+
+
+.pink{
+    color: #D20094;
+    color: #900080;
+}
+
+.neonBlue{
+    color: 0.5em 0.5em 0.5em 0.5em #00FFFF;
+}
+
+/* CSS creato da Timoteo per la sua pagina */
+
+form button {
+    margin: 1em;
+    padding: 1em 2em;
+    background-color: #2E2E5E;
+    color: #fff;
+    border: 3px solid transparent;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form button::after {
+    content: '';
+    position: absolute;
+    height: 130%;
+    width: 106%;
+    border-radius: 30px;
+    background-image: linear-gradient(to bottom right, rgba(255,255,255,1.0), rgba(255,255,255,0.2));
+    z-index: -1;
+}
+
+form button:hover {
+    background-color: #FF1E8E;
+  }
+
+/* Fine CSS creato da Timoteo per la sua pagina */
