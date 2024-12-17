@@ -125,7 +125,7 @@ if (window.location.href.match('test.html') != null) {
 
 let questionNumber = 0;
 let totAnswersCorrects = 0;
-let totAnswersIncorrects = 0;
+let totAnswersWrongs = 0;
 
 
 const addQuestion = n => {
@@ -283,10 +283,8 @@ function answer(a) {
   if (a === questions[questionNumber].correct_answer ) {
     totAnswersCorrects +=1;
   } else {
-    totAnswersIncorrects +=1;
+    totAnswersWrongs +=1;
   }
-console.log(totAnswersCorrects)
-console.log(totAnswersIncorrects)
 questionNumber +=1;
 let h1 = document.querySelector('h1');
 h1.parentElement.removeChild(h1);
@@ -297,7 +295,10 @@ for (let i = 0; i < myAnswersArr.length; i++) {
 myAnswersArr.length = 0;
 
 if (questionNumber === questions.length) {
-  return alert("Domande concluse!")
+  localStorage.setItem("risposteGiuste", totAnswersCorrects);
+  localStorage.setItem("risposteSbagliate", totAnswersWrongs);
+  console.log(localStorage)
+  //window.location.href = "./results.html"
 } else {
   addQuestion(questionNumber)
 }
