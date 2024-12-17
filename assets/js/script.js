@@ -299,7 +299,7 @@ if (questionNumber === questions.length) {
   localStorage.setItem("risposteGiuste", totAnswersCorrects);
   localStorage.setItem("risposteSbagliate", totAnswersWrongs);
   console.log(localStorage)
-  //window.location.href = "./results.html"
+  window.location.href = "./results.html"
 } else {
   addQuestion(questionNumber)
 }
@@ -351,29 +351,25 @@ console.log (stars)
 
 if (window.location.href.match('results.html') != null) {
 //giulio js//
-
-//Esempio di array con le risposte corrette//
-const risposte = ["Central Processing Unit", "Final", false,false , ".svg", "Cascading Style Sheet", "Nougat", "140", true, "Java"];
-
 // Funzione per calcolare la percentuale e il conteggio
-function generaSummary(risposte) {
+const risposteGiuste = parseInt(localStorage.getItem("risposteGiuste"))
+  const risposteSbagliate = parseInt(localStorage.getItem("risposteSbagliate"))
+  let somma = risposteGiuste + risposteSbagliate
+function generaSummary() {
   // Conta le risposte giuste e sbagliate
-  const risposteGiuste = risposte.length;
-  const risposteSbagliate = risposte.length - risposteGiuste;
-
   // Calcola le percentuali
-  const percentualeGiuste = (risposteGiuste / risposte.length) * 100;
-  const percentualeSbagliate = (risposteSbagliate / risposte.length) * 100;
+  const percentualeGiuste = (risposteGiuste / somma) * 100;
+  const percentualeSbagliate = (risposteSbagliate / somma) * 100;
   
 
 
   // Genera il summary
   const summary = {
-    totaleRisposte: risposte.length,
+    totaleRisposte: somma,
     corrette: risposteGiuste,
     sbagliate: risposteSbagliate,
-    percentualeCorrette: percentualeGiuste.toFixed(2), // 2 decimali
-    percentualeSbagliate: percentualeSbagliate.toFixed(2) // 2 decimali
+    percentualeCorrette: percentualeGiuste.toFixed(1), // 2 decimali
+    percentualeSbagliate: percentualeSbagliate.toFixed(1) // 2 decimali
   };
 
   return summary;
@@ -388,7 +384,7 @@ function generaSummary(risposte) {
   box1.appendChild(percentualeSbagliate);*/
 
 // Genera il summary
-const summary = generaSummary(risposte);
+const summary = generaSummary(somma);
 
 // Mostra il summary in console
 console.log("Summary delle risposte:");
@@ -397,13 +393,12 @@ console.log(`Corrette: ${summary.corrette} (${summary.percentualeCorrette}%)`);
 console.log(`Sbagliate: ${summary.sbagliate} (${summary.percentualeSbagliate}%)`);
 
 //chart meridjan
-let correct = 66.7
-        let wrong = 33.3
-        document.getElementById("correctPerc").innerText= correct + "%";
-        document.getElementById("wrongPerc").innerText= wrong + "%";
+
+        document.getElementById("correctPerc").innerText= summary.percentualeCorrette + "%";
+        document.getElementById("wrongPerc").innerText= summary.percentualeSbagliate + "%";
         document.getElementById("correctRate").innerText= `${risposteGiuste}/${risposteGiuste+risposteSbagliate} questions`;
         document.getElementById("wrongRate").innerText=`${risposteSbagliate}/${risposteGiuste+risposteSbagliate} questions`;
-        if(correct>=60){
+        if(summary.percentualeCorrette>=60){
             document.getElementById("p1").innerText="Congratulations!";
             document.getElementById("p2").innerText="You passed the exam.";
             document.getElementById("p3").innerText="We'll send you the certificate in few minutes."
@@ -421,7 +416,7 @@ let correct = 66.7
         data: {
             datasets: [{
                 label: 'answers',
-                data: [wrong, correct],
+                data: [summary.percentualeSbagliate, summary.percentualeCorrette],
                 borderWidth: 0,
                 backgroundColor: ["#C2128D", "#00FFFF"]
             }]
