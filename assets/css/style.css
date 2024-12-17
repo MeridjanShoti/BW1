@@ -59,7 +59,7 @@ main{
     margin-top: 4em;
 }
 
-#h1Prima{
+#h1Prima h1{
     font-weight: 400;
     font-size: 5em;
     width: 50%;
@@ -108,6 +108,7 @@ h1 b{
 
 #proceed{
     float: right;
+    cursor: pointer;
 }
 
 .neonButton{
