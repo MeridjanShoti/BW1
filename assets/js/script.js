@@ -1,5 +1,5 @@
 // Inizio script prima pagina
-
+if (window.location.href.match('index.html') != null) {
 
 let termsConditions = document.querySelector('#terms input')
 
@@ -9,14 +9,14 @@ let proceed = document.querySelector('#proceed')
 let checkAndGo = function (){
     if (termsConditions.checked && termsConditions.value === "ok"){
 
-        window.location.href = "./test" } else {
+        window.location.href = "./test.html" } else {
             window.alert("Flag Your Promise or Go Home !!!")
         }
 
 }
 
 proceed.addEventListener('click', checkAndGo)
-
+}
 // Fine script prima pagina
 
 // Codice aggiunto da Timoteo per la sua pagina 
@@ -309,7 +309,7 @@ addQuestion(questionNumber);
 
 }
 // Fine codice Timoteo
-
+if (window.location.href.match('review.html') != null) {
 //Inizio Script Juliet
 const stars = document.querySelectorAll ('.star')
 const starsContainer = document.querySelector ('#star-container')
@@ -344,20 +344,12 @@ stars.addEventListener('mouseout', () => {
     highlightStars(selectedValue);
 });
 console.log (stars)
+}
 //Fine Script Juliet
 
-
-
-
-
-
-
-
-
-
-
-
+if (window.location.href.match('results.html') != null) {
 //giulio js//
+
 //Esempio di array con le risposte corrette//
 const risposte = ["Central Processing Unit", "Final", false,false , ".svg", "Cascading Style Sheet", "Nougat", "140", true, "Java"];
 
@@ -401,3 +393,4 @@ console.log("Summary delle risposte:");
 console.log(`Totale risposte: ${summary.totaleRisposte}`);
 console.log(`Corrette: ${summary.corrette} (${summary.percentualeCorrette}%)`);
 console.log(`Sbagliate: ${summary.sbagliate} (${summary.percentualeSbagliate}%)`);
+}
