@@ -57,10 +57,43 @@
         #chart{
             width: 30%;
             width: 30%;
+            min-width: 20vw;
+            min-width: 20vw;
             position: relative;
             margin: 3em 5em;
         }
-        
+        .correct{
+            text-align: left;
+        }
+        .wrong{
+            text-align: right;
+        }
+        .positionA p{
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .correct p, .wrong p{
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        .bold{
+            font-weight: 900;
+        }
+        #wrongRate, #correctRate{
+            font-size: 2em;
+            font-weight: lighter
+        }
+        #p1{
+            font-weight: bold;
+        }
+        #p2{
+            font-weight: bold;
+            color: #00FFFF;
+        }
+        #p3, #p4{
+            font-weight: lighter;
+            font-size: 0.9em;
+        }
     </style>
     
 </head>
@@ -74,21 +107,26 @@
     <h1 class="center big">Results</h1>
     <h2 class="center">The summary of your answers</h2>
     <div class="center mainBox">
-        <div class="center inlineBlock big correct">
-            <p>Correct</p>
+        <div class="center inlineBlock correct">
+            <p class="big">Correct</p>
+            <p id="correctPerc" class="big bold"></p>
+            <p id="correctRate"></p>
         </div>
         <div id="chart" class="center inlineBlock">
             <div>
                 <canvas id="myChart"></canvas>
                 <div class="positionA">
-                    <p>DAJE</p>
-                    <p>daje roma daje</p>
-                    <p>er ghosting</p>
+                    <p id="p1"></p>
+                    <p id="p2"></p>
+                    <p id="p3"></p>
+                    <p id="p4"></p>
                 </div>
             </div>
         </div>
-        <div class="center inlineBlock big wrong">
-            Wrong
+        <div class="center inlineBlock wrong">
+            <p class="big">Wrong</p>
+            <p id="wrongPerc" class="big bold"></p>
+            <p id="wrongRate"></p>
         </div>
     </div>
     <div class="center"><a href="#"><button>RATE US</button></a></div>
@@ -100,6 +138,26 @@
     <script>
         let correct = 66.7
         let wrong = 33.3
+        let correctRate = "X/Z"
+        let wrongRate = "Y/Z"
+        let numberOfQuestions= 20
+        let numberOfCorrect = 15
+        let numberOfWrong = 5 
+        document.getElementById("correctPerc").innerText= correct + "%";
+        document.getElementById("wrongPerc").innerText= wrong + "%";
+        document.getElementById("correctRate").innerText= `${numberOfCorrect}/${numberOfQuestions} questions`;
+        document.getElementById("wrongRate").innerText=`${numberOfWrong}/${numberOfQuestions} questions`;
+        if(correct>=60){
+            document.getElementById("p1").innerText="Congratulations!";
+            document.getElementById("p2").innerText="You passed the exam.";
+            document.getElementById("p3").innerText="We'll send you the certificate in few minutes."
+            document.getElementById("p4").innerText="Check your email (including promotions / spam)";
+        }
+        else{
+            document.getElementById("p1").innerText="Sorry!";
+            document.getElementById("p2").innerText="You didn't passed the exam.";
+            document.getElementById("p3").innerText="You can retry to get the certification by consulting your teacher.";
+        }
         const ctx = document.getElementById('myChart');
       
         new Chart(ctx, {
