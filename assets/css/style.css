@@ -8,7 +8,6 @@
 cosi ognuno puo modificare la propria pagina dalla sezione main in poi senza toccare i tag precedenti.
 
 <body>
-<<<<<<< HEAD
     <section class="pageWrapper">
     <header>
         <div>
@@ -26,9 +25,6 @@ cosi ognuno puo modificare la propria pagina dalla sezione main in poi senza toc
 */
 
 /* Questi sono i tag con le caratteristiche uguali per tutti */
-
-
-
 
 body{
     background-image: url(../img/bg.jpg);
@@ -52,10 +48,6 @@ header div{
     height: 3em;
 
 }
-
-
-
-
 /* fine tag uguali per tutti */
 
 
@@ -132,7 +124,6 @@ h1 b{
 /* fine css prima pagina */
 
 
-
 /* Codici colori e relative classi */
 
 
@@ -178,16 +169,17 @@ form button::after {
 
 form button:hover {
     background-color: #FF1E8E;
-  }
+}
 
 /* Fine CSS creato da Timoteo per la sua pagina */
 
-   
 
 /*Css Juliet*/
+
 * {
     box-sizing: border-box;
 }
+
 div h1 {
     font-size: 1.8rem;
     color: white;
@@ -195,7 +187,6 @@ div h1 {
     font-weight: 700;
     margin: 10px 0;
 }
-
 
 .partesopra p {
     color: white;
@@ -209,12 +200,11 @@ div h1 {
    color:  #060a2d ;
    cursor: pointer;
    transition: color 0.1s ease;
-   
-
 }
- .star.selected, .star.hovered {
+
+.star.selected, .star.hovered {
     color: #00FFFF;
- }
+}
  
  textarea{
     width: 100%;
@@ -230,18 +220,13 @@ div h1 {
     height: 100%;
     overflow: hidden;
     resize: none;
-    
-
 }
+
 textarea::placeholder {
     color:rgba(255, 255, 255, 0.6);
     left: 10px;
     font-size: 0.9rem;
-    pointer-events: none;
-   
-
-    
-    
+    pointer-events: none;    
 }
 
 #lastparaph {
@@ -250,6 +235,7 @@ textarea::placeholder {
     font-size: 1rem;
     margin-top: 3.5rem ;
 }
+
  #more-info {
     background-color: #00FFFF;
     color: #0C113B;
@@ -260,10 +246,6 @@ textarea::placeholder {
     font-weight: bold;
     margin-top: 2rem;
     box-shadow: 0 0 20px 5px rgba(0, 255, 255, 0.6);
-    
-    
 }
     
-
-/* fine css Juliet/*
->>>>>>> Juliet
+/* fine css Juliet/
