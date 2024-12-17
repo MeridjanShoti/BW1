@@ -166,9 +166,9 @@ h1 b{
     height: 3em;
 }
   
-.base-timer__svg {
+/* .base-timer__svg {
     transform: scaleX(-1);
-}
+} */
   
 .base-timer__circle {
     fill: none;
