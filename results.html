@@ -24,9 +24,9 @@
             vertical-align: middle;
         }
         html{
-            background-image: url(./assets/img/bg.jpg);
+            /* background-image: url(./assets/img/bg.jpg);
             background-repeat: no-repeat;
-            background-size: cover;
+            background-size: cover; */
             color: #E7E7EB;
         }
         h1,h2{
@@ -47,14 +47,14 @@
         div{
             font-family: "Outfit", sans-serif;
         }
-        .logoEpicode{
+       /*  .logoEpicode{
             background-image: url(./assets/img/epicode_logo.png);
             background-repeat: no-repeat;
             background-size: contain;
             height: 5vw;
             width: 15%;
             margin-top: 3em;
-        }
+        } */
         body{
             width: 70vw;
             margin: auto;
@@ -65,17 +65,15 @@
         left: 50%;
         text-align: center;
         }
-        .correct{
-            float: left;
-        }
-        .wrong{
-            float: right;
-        }
     </style>
     
 </head>
 <body>
-<header><div class="logoEpicode"></div></header>
+<header>
+    <div>
+        <img class="logoEpicode" src="./assets/img/epicode_logo.png" alt="Epicode Logo">
+    </div> 
+</header>
 <main>
     <h1 class="center big">Results</h1>
     <h2 class="center">The summary of your answers</h2>
