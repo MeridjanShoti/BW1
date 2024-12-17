@@ -347,3 +347,57 @@ console.log (stars)
 //Fine Script Juliet
 
 
+
+
+
+
+
+
+
+
+
+
+//giulio js//
+//Esempio di array con le risposte corrette//
+const risposte = ["Central Processing Unit", "Final", false,false , ".svg", "Cascading Style Sheet", "Nougat", "140", true, "Java"];
+
+// Funzione per calcolare la percentuale e il conteggio
+function generaSummary(risposte) {
+  // Conta le risposte giuste e sbagliate
+  const risposteGiuste = risposte.length;
+  const risposteSbagliate = risposte.length - risposteGiuste;
+
+  // Calcola le percentuali
+  const percentualeGiuste = (risposteGiuste / risposte.length) * 100;
+  const percentualeSbagliate = (risposteSbagliate / risposte.length) * 100;
+  
+
+
+  // Genera il summary
+  const summary = {
+    totaleRisposte: risposte.length,
+    corrette: risposteGiuste,
+    sbagliate: risposteSbagliate,
+    percentualeCorrette: percentualeGiuste.toFixed(2), // 2 decimali
+    percentualeSbagliate: percentualeSbagliate.toFixed(2) // 2 decimali
+  };
+
+  return summary;
+}
+/*let box=document.createElement('section');
+  let correct =document.querySelector('main div p');
+  correct.appendChild(box);
+  box.appendChild(percentualeGiuste);
+  let box1=document.createElement('section');
+  let nocorrect=document.getElementById("sbagliato");
+  nocorrect.appendChild(box1);
+  box1.appendChild(percentualeSbagliate);*/
+
+// Genera il summary
+const summary = generaSummary(risposte);
+
+// Mostra il summary in console
+console.log("Summary delle risposte:");
+console.log(`Totale risposte: ${summary.totaleRisposte}`);
+console.log(`Corrette: ${summary.corrette} (${summary.percentualeCorrette}%)`);
+console.log(`Sbagliate: ${summary.sbagliate} (${summary.percentualeSbagliate}%)`);
