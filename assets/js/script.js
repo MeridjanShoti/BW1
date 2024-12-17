@@ -5,7 +5,7 @@ let selectedValue = 0;
 
 function highlightStars (value) {
     stars.forEach (star => {
-        if (star.dataset.value <= value) {
+        if (star.dataset.value <= value) { //dataset è per poter leggerere datavalue in html 
             star.classList.add ('selected');
 
         } else {
