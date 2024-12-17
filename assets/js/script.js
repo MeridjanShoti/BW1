@@ -399,15 +399,10 @@ console.log(`Sbagliate: ${summary.sbagliate} (${summary.percentualeSbagliate}%)`
 //chart meridjan
 let correct = 66.7
         let wrong = 33.3
-        let correctRate = "X/Z"
-        let wrongRate = "Y/Z"
-        let numberOfQuestions= 20
-        let numberOfCorrect = 15
-        let numberOfWrong = 5 
         document.getElementById("correctPerc").innerText= correct + "%";
         document.getElementById("wrongPerc").innerText= wrong + "%";
-        document.getElementById("correctRate").innerText= `${numberOfCorrect}/${numberOfQuestions} questions`;
-        document.getElementById("wrongRate").innerText=`${numberOfWrong}/${numberOfQuestions} questions`;
+        document.getElementById("correctRate").innerText= `${risposteGiuste}/${risposteGiuste+risposteSbagliate} questions`;
+        document.getElementById("wrongRate").innerText=`${risposteSbagliate}/${risposteGiuste+risposteSbagliate} questions`;
         if(correct>=60){
             document.getElementById("p1").innerText="Congratulations!";
             document.getElementById("p2").innerText="You passed the exam.";
