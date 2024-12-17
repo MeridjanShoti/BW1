@@ -45,6 +45,78 @@ header div{
 
 /* fine tag uguali per tutti */
 
+/* css prima pagina */
+main{
+    font-family: Outfit;
+    
+    color: white;
+    margin-top: 4em;
+}
+
+#h1Prima{
+    font-weight: 400;
+    font-size: 5em;
+    width: 50%;
+   }
+
+h1 b{
+    font-weight: bold;
+}
+
+#h2Prima{
+    margin: 2em 0 2em 0;
+    width: 50%;
+
+}
+#h2Prima h2{
+    color: #D20094;
+    font-weight: bold;
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+#h2Prima p{
+    font-family: Inter;
+    font-size: 1.1em;
+    color: white;
+    font-weight: 400;
+    line-height: 1.2em;
+}
+
+#unorderList{
+    margin: 2em 1em 2em 1em;
+    font-family: Inter;
+    font-size: 1.1em;
+    font-weight: 400;
+    line-height: 1.5em;
+}
+
+#unorderList li b{
+    font-weight: bold;
+}
+
+#terms{
+    margin-top: 4em;   
+    position: relative;
+}
+
+#proceed{
+    float: right;
+}
+
+.neonButton{
+    font-size: 1.5em;
+    font-weight: bold;
+    background-color: #00FFFF ;
+    color: #17192c;
+    padding: 0.8em 2em ;
+    border: none;
+    box-shadow: 0px 0px 21px 0px #00FFFF;
+    margin-top: -1em;
+}
+
+/* fine css prima pagina */
+
 /* Codici colori e relative classi */
 
 
@@ -54,5 +126,5 @@ header div{
 }
 
 .neonBlue{
-    color: #00FFFF;
+    color: 0.5em 0.5em 0.5em 0.5em #00FFFF;
 }
