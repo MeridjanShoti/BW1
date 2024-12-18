@@ -242,8 +242,12 @@ h1 b{
     font-size: 3.5em;
     margin: 3em auto 0 auto;
     height: 4.5em;
+    font-weight: 700;
+    line-height: 1.1em;
 }
-
+.question::first-line{
+    font-weight: 400;
+}
 form {
     height: 13em;
     margin: 0 auto;
@@ -256,7 +260,7 @@ form button {
     color: white;
     background:
       linear-gradient(170deg, rgba(46, 46, 94, 0.8) 2%,rgba(46, 46, 94, 0.5)20%, rgba(46, 46, 94, 0.1)) padding-box,
-      linear-gradient(170deg, #fff 2%, rgba(255, 255, 255, 0.5) 4%, transparent) border-box;
+      linear-gradient(170deg, #FFFEFE 2%, rgba(255, 255, 255, 0.5) 4%, transparent) border-box;
     border-radius:1000px;
     font-size: 1em;
     width: 44.5%;
