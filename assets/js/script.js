@@ -160,10 +160,15 @@ const shuffledArray = myAnswersArr.sort((a, b) => 0.5 - Math.random());
 // Produco i bottoni in base alle risposte
 for (let i = 0; i < myAnswersArr.length; i++) {
   let button = document.createElement('button')
+  button.classList.add("normal")
   button.innerHTML = myAnswersArr[i]
   button.addEventListener('click', function (ele) {
     ele.preventDefault();
     answer(button.innerHTML);
+    const allButtons = form.querySelectorAll("button");
+    allButtons.forEach(btn => {
+      btn.disabled = true; // Disabilita il bottone
+    });
 })
 
 // Inserisco i bottoni nel form
@@ -305,18 +310,16 @@ function setCircleDasharray() {
 
 function funzioneCheColoraRisposte() {
   //PSEUDOCODICE DA CONVERTIRE, le cose tutte in maiuscolo devo capire da dove prenderle
-  /*if (RISPOSTASELEZIONATA === RISPOSTACORRETTA){
-    RISPOSTASELEZIONATA.style.background = "linear gradient verde"
+  
 }
-    else{
+  /*   else{
       BOTTONERISPOSTASELEZIONATA.style.background = "linear gradient rosso"
       BOTTONERISPOSTACORRETTA.style.background = "linear gradient verde"
     }
-  }*/
-}
+  }
+} */
 
 // Questa funzione controlla le risposte, resetta il timer, aggiunge un numero alla variabili giuste o sbagliate in base al confronto
-
 function answer(a) {
   clearInterval(timerInterval);
   if (a === questions[questionNumber].correct_answer ) {
@@ -324,18 +327,32 @@ function answer(a) {
     //ho aggiunto un p direttamente dall'html con id feedback e cambia colore e contenuto a seconda della risposta
     document.getElementById("feedback").innerText = "Risposta corretta"
     document.getElementById("feedback").style.color = "green"
+    for (element of form){
+      if (element.innerText === questions[questionNumber].correct_answer){
+        element.className = "green"
+      }
+    }
   } else {
     totAnswersWrongs +=1;
     document.getElementById("feedback").innerText = "Risposta errata"
     document.getElementById("feedback").style.color = "red"
+      if (event.target.innerText !== questions[questionNumber].correct_answer){
+        event.target.className = "red"
+      }
+    for (element of form){
+      if (element.innerText === questions[questionNumber].correct_answer){
+        element.className = "green"
+        console.log(element.class)
+      }
+    }
   }
   //formattazione comune del p di feedback
     document.getElementById("feedback").style.fontWeight = "600"
     document.getElementById("feedback").style.textAlign = "center"
     document.getElementById("feedback").style.paddingTopTop = "2em"
-  setInterval(funzioneCheColoraRisposte(), 2000);
+  
 questionNumber +=1;
-
+setTimeout(() => {
 // Cancello l'h1 e i bottoni
 let h1 = document.querySelector('h1');
 h1.parentElement.removeChild(h1);
@@ -355,7 +372,7 @@ if (questionNumber === questions.length) {
 } else {
   addQuestion(questionNumber)
 }
-
+}, 2000);
 }
 
 }
@@ -364,6 +381,7 @@ if (questionNumber === questions.length) {
 addQuestion(questionNumber);
 
 }
+
 // Fine codice Timoteo
 if (window.location.href.match('review.html') != null) {
 //Inizio Script Juliet
