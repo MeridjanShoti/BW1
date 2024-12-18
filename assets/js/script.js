@@ -301,15 +301,39 @@ function setCircleDasharray() {
     .getElementById("base-timer-path-remaining")
     .setAttribute("stroke-dasharray", circleDasharray);
 }
+//la funzione colora di verde la risposta giusta e la risposta selezionata, se è sbagliata, di rosso
+
+function funzioneCheColoraRisposte() {
+  //PSEUDOCODICE DA CONVERTIRE, le cose tutte in maiuscolo devo capire da dove prenderle
+  /*if (RISPOSTASELEZIONATA === RISPOSTACORRETTA){
+    RISPOSTASELEZIONATA.style.background = "linear gradient verde"
+}
+    else{
+      BOTTONERISPOSTASELEZIONATA.style.background = "linear gradient rosso"
+      BOTTONERISPOSTACORRETTA.style.background = "linear gradient verde"
+    }
+  }*/
+}
 
 // Questa funzione controlla le risposte, resetta il timer, aggiunge un numero alla variabili giuste o sbagliate in base al confronto
+
 function answer(a) {
   clearInterval(timerInterval);
   if (a === questions[questionNumber].correct_answer ) {
     totAnswersCorrects +=1;
+    //ho aggiunto un p direttamente dall'html con id feedback e cambia colore e contenuto a seconda della risposta
+    document.getElementById("feedback").innerText = "Risposta corretta"
+    document.getElementById("feedback").style.color = "green"
   } else {
     totAnswersWrongs +=1;
+    document.getElementById("feedback").innerText = "Risposta errata"
+    document.getElementById("feedback").style.color = "red"
   }
+  //formattazione comune del p di feedback
+    document.getElementById("feedback").style.fontWeight = "600"
+    document.getElementById("feedback").style.textAlign = "center"
+    document.getElementById("feedback").style.paddingTopTop = "2em"
+  setInterval(funzioneCheColoraRisposte(), 2000);
 questionNumber +=1;
 
 // Cancello l'h1 e i bottoni
