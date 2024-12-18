@@ -320,6 +320,7 @@ const stars = document.querySelectorAll ('.star')
 const starsContainer = document.querySelector ('#star-container')
 
 let selectedValue = 0;
+let enable = true
 //evidenzio le stelle
 function highlightStars (value) {
     stars.forEach (star => {
@@ -328,27 +329,29 @@ function highlightStars (value) {
 
         } else {
             star.classList.remove ('selected');
-
         }
     });
 }
-
 stars.forEach (star => {
+  console.log(enable)
+  if(enable===true){
     star.addEventListener('mouseover',() => {
         highlightStars (star.dataset.value);
     })
+  }
 })
 
-
 stars.addEventListener('click', () => {
-    selectedValue = stars.dataset.value;
-    highlightStars(selectedValue);
+  
+    /* selectedValue = stars.dataset.value;
+    highlightStars(selectedValue); */
+    
 });
 
 stars.addEventListener('mouseout', () => {
-    highlightStars(selectedValue);
+  enable = false
 });
-console.log (stars)
+
 }
 //Fine Script Juliet
 
