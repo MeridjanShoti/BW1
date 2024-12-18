@@ -136,7 +136,6 @@ h1 b{
 
 #proceed{
     float: right;
-    cursor: pointer;
 }
 
 .neonButton{
@@ -148,6 +147,7 @@ h1 b{
     border: none;
     box-shadow: 0px 0px 21px 0px #00FFFF;
     margin-top: -1em;
+    cursor: pointer;
 }
 
 /* fine css prima pagina */
