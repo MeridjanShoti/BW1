@@ -322,6 +322,7 @@ function funzioneCheColoraRisposte() {
 // Questa funzione controlla le risposte, resetta il timer, aggiunge un numero alla variabili giuste o sbagliate in base al confronto
 function answer(a) {
   clearInterval(timerInterval);
+  console.log(a)
   if (a === questions[questionNumber].correct_answer ) {
     totAnswersCorrects +=1;
     //ho aggiunto un p direttamente dall'html con id feedback e cambia colore e contenuto a seconda della risposta
@@ -336,9 +337,11 @@ function answer(a) {
     totAnswersWrongs +=1;
     document.getElementById("feedback").innerText = "Risposta errata"
     document.getElementById("feedback").style.color = "red"
+      if (a !== undefined){
       if (event.target.innerText !== questions[questionNumber].correct_answer){
         event.target.className = "red"
       }
+    }
     for (element of form){
       if (element.innerText === questions[questionNumber].correct_answer){
         element.className = "green"
