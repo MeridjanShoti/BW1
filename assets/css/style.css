@@ -274,8 +274,8 @@ footer p span {
 .center {
     text-align: center;
 }
-div.partesopra h1 {
-    font-size: 3em;
+.partesopra h1 {
+    font-size: 3.2em;
     color: white;
     font-family:  "Outfit", sans-serif;
     font-weight: 700;
@@ -284,9 +284,11 @@ div.partesopra h1 {
 
 .partesopra p {
     color: white;
-    font-family: "Inter", sans-serif;
-    font-size: 1rem;
+    font-family: "Outfit", sans-serif;
+    font-size: 1.5em;
     margin-bottom: 20px;
+    line-height: 1.3em;
+    
 }
 
 .star {
@@ -308,13 +310,14 @@ div.partesopra h1 {
     color: white;
     padding-top: 3rem;
     outline: none;
-    line-height: 0.3em;
+    line-height: 0.7em;
     padding-left: 1.5em;
     height: 100%;
     overflow: hidden;
     resize: none;
     display: block;
-    margin: 0 auto 3em auto;
+    margin: 0 auto 6em auto;
+    font-family: "Inter", sans-serif ;   
 };
 
 
@@ -322,26 +325,15 @@ textarea::placeholder {
     color:rgba(255, 255, 255, 0.6);
     left: 10px;
     font-size: 0.9rem;
-    pointer-events: none;    
+    pointer-events: none; 
+   
 }
 
 #lastparaph {
     color: white;
-    font-family: "Inter", sans-serif;
-    font-size: 1rem;
+    font-family: "Outfit", sans-serif;
+    font-size: 1.5em;
     margin-top: 3.5rem ;
-}
-
- #more-info {
-    background-color: #00FFFF;
-    color: #0C113B;
-    border: none;
-    padding: 0.625rem 3rem;
-    font-size: 1rem;
-    cursor: pointer;
-    font-weight: bold;
-    margin-top: 2rem;
-    box-shadow: 0 0 20px 5px rgba(0, 255, 255, 0.6);
 }
     
 /* fine css Juliet*/
@@ -376,7 +368,6 @@ div{
     font-family: "Outfit", sans-serif;
 }
 body{
-    width: 70vw;
     margin: auto;
 }
 .positionA{
