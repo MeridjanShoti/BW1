@@ -124,34 +124,40 @@ if (window.location.href.match('test.html') != null) {
         },
       ];
 
+// Imposto le variabili per il numero di risposte, il numero di quelle giuste e quelle sbagliate
 let questionNumber = 0;
 let totAnswersCorrects = 0;
 let totAnswersWrongs = 0;
 
-
+// Funzione per la gestione delle domande
 const addQuestion = n => {
 
+// Imposto un array che serve per creare i bottoni
 const myAnswersArr = [];
+
+// Inserisco il tag per le domande
 let question = document.querySelector('div.question')
 let h1 = document.createElement('h1')
 h1.innerHTML = questions[n].question
 question.appendChild(h1)
 
-let footer = document.querySelector('footer p')
-footer.innerHTML = `question ${n+1} <span> / ${questions.length}</span>`;
+
 
 // Aggiungo le risposte in un array 
 let form = document.querySelector('form');
 
+// Inserisco la risposta corretta nell'array
 myAnswersArr.push(questions[n].correct_answer);
+
+// Inserisco tutte le risposte sbagliate nell'array
 for (let i = 0; i < questions[n].incorrect_answers.length; i++) {
   myAnswersArr.push(questions[n].incorrect_answers[i])
 }
 
-// mischio l'array 
+// Mischio l'array 
 const shuffledArray = myAnswersArr.sort((a, b) => 0.5 - Math.random());
 
-// produco i bottoni in base alle risposte
+// Produco i bottoni in base alle risposte
 for (let i = 0; i < myAnswersArr.length; i++) {
   let button = document.createElement('button')
   button.innerHTML = myAnswersArr[i]
@@ -161,35 +167,45 @@ for (let i = 0; i < myAnswersArr.length; i++) {
     
 })
 
-  form.appendChild(button)
+// Inserisco i bottoni nel form
+form.appendChild(button)
 }
 
-const FULL_DASH_ARRAY = 283;
-const WARNING_THRESHOLD = 10;
-const ALERT_THRESHOLD = 5;
+// Imposto il footer per identificare il numero di domanda e il numero totale di domande
+let footer = document.querySelector('footer p')
+footer.innerHTML = `question ${n+1} <span> / ${questions.length}</span>`;
 
-const COLOR_CODES = {
+// Imposto il timer per le domande 
+const full_dash_array = 283;
+
+// Imposto il tempo per cambiare il colore in arancione
+const warning_threshold = 10;
+
+// Imposto il tempo per cambiare il colore in rosso
+const alert_threshold = 5;
+
+const color_codes = {
   info: {
     color: "green"
   },
   warning: {
     color: "orange",
-    threshold: WARNING_THRESHOLD
+    threshold: warning_threshold
   },
   alert: {
     color: "red",
-    threshold: ALERT_THRESHOLD
+    threshold: alert_threshold
   }
 };
 
-
-const TIME_LIMIT = 120;
+// Imposto il tempo per ogni domanda
+const time_limit = 120;
 let timePassed = 0;
-let timeLeft = TIME_LIMIT;
+let timeLeft = time_limit;
 let timerInterval = null;
-let remainingPathColor = COLOR_CODES.info.color;
+let remainingPathColor = color_codes.info.color;
 
-
+// Imposto l'HTML con la variabile che deve cambiare per la diminuzione del tempo colorato in azzurro
 document.getElementById("app").innerHTML = `
 <div class="base-timer">
   <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -214,16 +230,19 @@ document.getElementById("app").innerHTML = `
 </div>
 `;
 
+// Faccio partire il timer ad ogni nuova domanda
 startTimer();
 
+// Alla fine del tempo imposto come se la risposta è stata data ma con testo vuoto e di conseguenza errato
 function onTimesUp() {
   answer();
 }
 
+// Questa funzione gestisce la parte in HTML che viene modificata fino a quando non arriva a zero
 function startTimer() {
   timerInterval = setInterval(() => {
     timePassed = timePassed += 1;
-    timeLeft = TIME_LIMIT - timePassed;
+    timeLeft = time_limit - timePassed;
     document.getElementById("base-timer-label").innerHTML = formatTime(
       timeLeft
     );
@@ -236,6 +255,7 @@ function startTimer() {
   }, 1000);
 }
 
+// Questa funzione imposta il cambio di colore dei secondi 
 function formatTime(time) {
   //const minutes = Math.floor(time / 60);
 
@@ -247,9 +267,9 @@ function formatTime(time) {
   }
   return `${time}`;
 }
-
+// Questa funzione serve per il cambio di colore della parte HTML
 function setRemainingPathColor(timeLeft) {
-  const { alert, warning, info } = COLOR_CODES;
+  const { alert, warning, info } = color_codes;
   if (timeLeft <= alert.threshold) {
     document
       .getElementById("base-timer-path-remaining")
@@ -267,20 +287,23 @@ function setRemainingPathColor(timeLeft) {
   }
 }
 
+// Questa funzione calcola le frazioni di HTML da togliere all'immagine svg
 function calculateTimeFraction() {
-  const rawTimeFraction = timeLeft / TIME_LIMIT;
-  return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+  const rawTimeFraction = timeLeft / time_limit;
+  return rawTimeFraction - (1 / time_limit) * (1 - rawTimeFraction);
 }
 
+// Questa funzione imposta la modalità in cui togliere le frazione da svg
 function setCircleDasharray() {
   const circleDasharray = `${(
-    calculateTimeFraction() * FULL_DASH_ARRAY
+    calculateTimeFraction() * full_dash_array
   ).toFixed(0)} 283`;
   document
     .getElementById("base-timer-path-remaining")
     .setAttribute("stroke-dasharray", circleDasharray);
 }
 
+// Questa funzione controlla le risposte, resetta il timer, aggiunge un numero alla variabili giuste o sbagliate in base al confronto
 function answer(a) {
   clearInterval(timerInterval);
   console.log(a);
@@ -290,14 +313,19 @@ function answer(a) {
     totAnswersWrongs +=1;
   }
 questionNumber +=1;
+
+// Cancello l'h1 e i bottoni
 let h1 = document.querySelector('h1');
 h1.parentElement.removeChild(h1);
 for (let i = 0; i < myAnswersArr.length; i++) {
   const b = document.querySelector("button");
   b.parentElement.removeChild(b);
 }
+
+// Svuoto l'array delle risposte
 myAnswersArr.length = 0;
 
+// Se sono arrivato all'ultima domanda salvo le variabili in Local Storage altrimenti passo alla prossima domanda
 if (questionNumber === questions.length) {
   localStorage.setItem("risposteGiuste", totAnswersCorrects);
   localStorage.setItem("risposteSbagliate", totAnswersWrongs);
@@ -310,6 +338,8 @@ if (questionNumber === questions.length) {
 }
 
 }
+
+// Alla'avvio della pagina parto subito con la prima domanda
 addQuestion(questionNumber);
 
 }
