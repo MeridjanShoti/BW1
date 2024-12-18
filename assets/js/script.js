@@ -163,13 +163,7 @@ for (let i = 0; i < myAnswersArr.length; i++) {
   button.innerHTML = myAnswersArr[i]
   button.addEventListener('click', function (ele) {
     ele.preventDefault();
-    const rispcorrette=myAnswersArr.filter(d=>questions[n].correct_answer)
-    console.log(rispcorrette)
-      
-      
-    
     answer(button.innerHTML);
-    
 })
 
 // Inserisco i bottoni nel form
@@ -313,7 +307,6 @@ function answer(a) {
   clearInterval(timerInterval);
   if (a === questions[questionNumber].correct_answer ) {
     totAnswersCorrects +=1;
-    a.style.backgroundColor='green';
   } else {
     totAnswersWrongs +=1;
   }
