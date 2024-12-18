@@ -382,6 +382,27 @@ stars.addEventListener('mouseout', () => {
   enable = false
 });
 
+// Soluzione trovata (da verificare se va bene)
+
+/* stars.forEach (star => {
+  star.addEventListener('mouseover',() => {
+    if (enable === true) {
+      highlightStars (star.dataset.value);
+    }
+  })
+  star.addEventListener('click', () => {
+    if (enable === true) {
+      enable = false;
+      highlightStars (star.dataset.value);
+    } else {
+      highlightStars (star.dataset.value);
+    }
+  })
+}) */
+
+
+
+
 }
 //Fine Script Juliet
 
