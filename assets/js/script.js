@@ -199,7 +199,7 @@ const color_codes = {
 };
 
 // Imposto il tempo per ogni domanda
-const time_limit = 120;
+const time_limit = 30;
 let timePassed = 0;
 let timeLeft = time_limit;
 let timerInterval = null;
@@ -306,7 +306,6 @@ function setCircleDasharray() {
 // Questa funzione controlla le risposte, resetta il timer, aggiunge un numero alla variabili giuste o sbagliate in base al confronto
 function answer(a) {
   clearInterval(timerInterval);
-  console.log(a);
   if (a === questions[questionNumber].correct_answer ) {
     totAnswersCorrects +=1;
   } else {
@@ -329,7 +328,6 @@ myAnswersArr.length = 0;
 if (questionNumber === questions.length) {
   localStorage.setItem("risposteGiuste", totAnswersCorrects);
   localStorage.setItem("risposteSbagliate", totAnswersWrongs);
-  console.log(localStorage)
   window.location.href = "./results.html"
 } else {
   addQuestion(questionNumber)
@@ -362,7 +360,7 @@ function highlightStars (value) {
         }
     });
 }
-stars.forEach (star => {
+/* stars.forEach (star => {
   console.log(enable)
   if(enable===true){
     star.addEventListener('mouseover',() => {
@@ -373,18 +371,19 @@ stars.forEach (star => {
 
 stars.addEventListener('click', () => {
   
-    /* selectedValue = stars.dataset.value;
-    highlightStars(selectedValue); */
+     selectedValue = stars.dataset.value;
+    highlightStars(selectedValue); 
     
 });
 
 stars.addEventListener('mouseout', () => {
   enable = false
-});
+}); */
+
 
 // Soluzione trovata (da verificare se va bene)
 
-/* stars.forEach (star => {
+stars.forEach (star => {
   star.addEventListener('mouseover',() => {
     if (enable === true) {
       highlightStars (star.dataset.value);
@@ -395,10 +394,11 @@ stars.addEventListener('mouseout', () => {
       enable = false;
       highlightStars (star.dataset.value);
     } else {
+      enable = true;
       highlightStars (star.dataset.value);
     }
   })
-}) */
+})
 
 
 
