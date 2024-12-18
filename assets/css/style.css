@@ -25,6 +25,9 @@ cosi ognuno puo modificare la propria pagina dalla sezione main in poi senza toc
 */
 
 /* Questi sono i tag con le caratteristiche uguali per tutti */
+* {
+    box-sizing: border-box;
+}
 
 body{
     background-image: url(../img/bg.jpg);
@@ -34,7 +37,7 @@ body{
 
 
 .pageWrapper{
-    width: 80%;
+    width: 70%;
     margin: auto;
 }   
 
@@ -48,17 +51,44 @@ header div{
     height: 3em;
 
 }
+
+main{
+    font-family: "Outfit", sans-serif;
+    color: #E7E7EB;
+    margin-top: 4em;
+}
+
+.inter{
+    font-family: "Inter", sans-serif;
+}
+
+.center {
+    text-align: center;
+}
 /* fine tag uguali per tutti */
 
 
 /* css prima pagina */
-main{
-    font-family: Outfit;
+input[type="checkbox"]{
+    appearance: none;
+    width: 1.5em;
+    height: 1.5em;
+    background-color: #00000000;
+    border: 2px solid #E7E7EB;
+    margin: 0 1em -0.25em 0;
     
-    color: white;
-    margin-top: 4em;
 }
-
+input[type="checkbox"]:checked{
+    appearance: none;
+    width: 1.5em;
+    height: 1.5em;
+    background-image: url(../img/check.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border: 2px solid #E7E7EB;
+    margin: 0 1em -0.25em 0;
+}
 #h1Prima h1{
     font-weight: 400;
     font-size: 5em;
@@ -82,8 +112,7 @@ h1 b{
 }
 
 #h2Prima p{
-    font-family: Inter;
-    font-size: 1.1em;
+    font-size: 1.2em;
     color: white;
     font-weight: 400;
     line-height: 1.2em;
@@ -91,7 +120,6 @@ h1 b{
 
 #unorderList{
     margin: 2em 1em 2em 1em;
-    font-family: Inter;
     font-size: 1.1em;
     font-weight: 400;
     line-height: 1.5em;
@@ -163,12 +191,8 @@ h1 b{
     position: relative;
     width: 3em;
     height: 3em;
-}
-  
-/* .base-timer__svg {
-    transform: scaleX(-1);
-} */
-  
+}  
+
 .base-timer__circle {
     fill: none;
     stroke: none;
@@ -215,7 +239,6 @@ h1 b{
     align-content: center;
     text-align: center;
     color: #fff;
-    font-family: "Outfit", sans-serif;
     font-size: 3.5em;
     margin: 3em auto 0 auto;
     height: 4.5em;
@@ -224,7 +247,6 @@ h1 b{
 form {
     height: 13em;
     margin: 0 auto;
-    font-family: "Inter", sans-serif;
 }
 
 form button {
@@ -268,23 +290,17 @@ footer p span {
 
 /*Css Juliet*/
 
-* {
-    box-sizing: border-box;
-}
-.center {
-    text-align: center;
-}
+
+
 .partesopra h1 {
     font-size: 3.2em;
     color: white;
-    font-family:  "Outfit", sans-serif;
     font-weight: 700;
     margin: 10px 0;
 }
 
 .partesopra p {
     color: white;
-    font-family: "Outfit", sans-serif;
     font-size: 1.5em;
     margin-bottom: 20px;
     line-height: 1.3em;
@@ -292,7 +308,7 @@ footer p span {
 }
 
 .star {
-   font-size: 3rem;
+   font-size: 4em;
    color:  #060a2d ;
    cursor: pointer;
    transition: color 0.1s ease;
@@ -316,8 +332,7 @@ footer p span {
     overflow: hidden;
     resize: none;
     display: block;
-    margin: 0 auto 6em auto;
-    font-family: "Inter", sans-serif ;   
+    margin: 0 auto 6em auto;   
 };
 
 
@@ -331,31 +346,24 @@ textarea::placeholder {
 
 #lastparaph {
     color: white;
-    font-family: "Outfit", sans-serif;
     font-size: 1.5em;
     margin-top: 3.5rem ;
 }
     
 /* fine css Juliet*/
 /* inizio css Meridjan */
-.center{
-    text-align: center;
-}
 .inlineBlock{
     display: inline-block;
     vertical-align: middle;
 }
-html{
-    color: #E7E7EB;
-}
+
 h1,h2{
-    font-family: "Outfit", sans-serif;
     margin: 0;
 }
 .big{
     font-size: 5em;
 }
-button {
+#buttonM {
     border-color: #E7E7EB;
     background-color: #00000000;
     padding: 0.7em 3em;
@@ -363,13 +371,9 @@ button {
     font-weight: 700;
     font-size: 1.5em;
     margin: auto;
+    border-style: solid;
 }
-div{
-    font-family: "Outfit", sans-serif;
-}
-body{
-    margin: auto;
-}
+
 .positionA{
 height: 10%;
 position: absolute;
@@ -402,6 +406,9 @@ text-align: center;
 }
 .bold{
     font-weight: 900;
+}
+.lightBold{
+    font-weight: 600;
 }
 #wrongRate, #correctRate{
     font-size: 2em;
