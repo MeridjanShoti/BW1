@@ -76,7 +76,7 @@ input[type="checkbox"]{
     background-color: #00000000;
     border: 2px solid #E7E7EB;
     margin: 0 1em -0.25em 0;
-    
+    cursor: pointer;
 }
 input[type="checkbox"]:checked{
     appearance: none;
