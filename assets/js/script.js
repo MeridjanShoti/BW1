@@ -124,6 +124,10 @@ if (window.location.href.match('test.html') != null) {
         },
       ];
 
+// Mischio l'array 
+const shuffledObj = questions.sort((a, b) => 0.5 - Math.random());
+
+
 // Imposto le variabili per il numero di risposte, il numero di quelle giuste e quelle sbagliate
 let questionNumber = 0;
 let totAnswersCorrects = 0;
@@ -176,7 +180,7 @@ form.appendChild(button)
 }
 
 // Imposto il footer per identificare il numero di domanda e il numero totale di domande
-let footer = document.querySelector('footer p')
+let footer = document.querySelector('#question')
 footer.innerHTML = `question ${n+1} <span> / ${questions.length}</span>`;
 
 // Imposto il timer per le domande 
@@ -357,6 +361,7 @@ function answer(a) {
 questionNumber +=1;
 setTimeout(() => {
 // Cancello l'h1 e i bottoni
+document.getElementById("feedback").innerText = "";
 let h1 = document.querySelector('h1');
 h1.parentElement.removeChild(h1);
 for (let i = 0; i < myAnswersArr.length; i++) {

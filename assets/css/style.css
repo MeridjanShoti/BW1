@@ -272,12 +272,12 @@ form {
 }
 .green{
     background: 
-    linear-gradient(170deg, rgba(0, 255, 64, 0.8) 70%, rgba(46, 46, 94, 0.1)) padding-box,
+    linear-gradient(170deg, rgba(0, 238, 60, 0.8) 40%, rgba(0, 139, 35, 0.5)) padding-box,
     linear-gradient(170deg, #FFFEFE 2%, rgba(255, 255, 255, 0.5) 4%, transparent) border-box;
 }
 .red{
     background: 
-    linear-gradient(170deg, rgba(255, 0, 0, 0.8) 70%, rgba(46, 46, 94, 0.1)) padding-box,
+    linear-gradient(170deg, rgba(255, 0, 0, 0.8) 40%, rgba(175, 28, 28, 0.5)) padding-box,
     linear-gradient(170deg, #FFFEFE 2%, rgba(255, 255, 255, 0.5) 4%, transparent) border-box;
 }
 
@@ -288,10 +288,14 @@ form {
     cursor: pointer;
   }
 
+#feedback {
+    height: 2em;
+}
+
 footer p{
     font-weight: 700;
     color: white;
-    margin-top: 6em;
+    margin-top: 2em;
     text-transform: uppercase;
     font-family: "Outfit", sans-serif;
     font-size: 1.3em;
