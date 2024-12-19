@@ -9,6 +9,15 @@ let proceed = document.querySelector('#proceed')
 
 let checkAndGo = function (){
     if (termsConditions.checked && termsConditions.value === "ok"){
+      
+      let difficulty = document.getElementById('difficulty').value//quando gennaro scrive il codice togliamo l'assegnazione qui
+      let numeroDomande = document.getElementById('numeroDomande').value//anche qui
+    
+      document.getElementById('difficulty').addEventListener('onchange',()=>difficulty =document.getElementById('difficulty').value)
+      document.getElementById('numeroDomande').addEventListener('onchange',()=>numeroDomande =document.getElementById('numeroDomande').value)
+
+      localStorage.setItem('difficulty',difficulty)
+      localStorage.setItem('numeroDomande',numeroDomande)
 
         window.location.href = "./test.html" } else {
             window.alert("Flag Your Promise or Go Home !!!")
@@ -25,23 +34,25 @@ proceed.addEventListener('click', checkAndGo)
 if (window.location.href.match('test.html') != null) {
 
   const questions = [];
-  let difficulty = "easy" //quando gennaro scrive il codice togliamo l'assegnazione qui
-  let numeroDomande = 48 //anche qui
-
+  let difficulty = localStorage.getItem('difficulty')
+  let numeroDomande = localStorage.getItem('numeroDomande')
+  let numeroSecondi = 0
 /*CODICE PER ASSEGNARE DIFFICULTY E NUMERO DI DOMANDE */
 
-  /* switch(difficulty){
-  case "easy": difficulty = "easy"
+  switch(difficulty){
+  case "easy": 
+        difficulty = "easy"
+        numeroSecondi = 30
     break;
-  case "medium": difficulty = "medium"
+  case "medium": 
+        difficulty = "medium"
+        numeroSecondi = 45
     break;
-  case "hard": difficulty = "hard"
+  case "hard": 
+        difficulty = "hard"
+        numeroSecondi = 60
     break;
     } 
-  
-  
-  */
-
 
 
 
@@ -142,7 +153,7 @@ const color_codes = {
 };
 
 // Imposto il tempo per ogni domanda
-const time_limit = 30;
+const time_limit = numeroSecondi;
 let timePassed = 0;
 let timeLeft = time_limit;
 let timerInterval = null;

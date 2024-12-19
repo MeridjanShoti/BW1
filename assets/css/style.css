@@ -150,6 +150,34 @@ h1 b{
     cursor: pointer;
 }
 
+
+#footerPrima{
+    margin-top: 2em;
+}
+
+#footerPrima label{
+    color: #E7E7EB;
+    font-size: 0.8em;
+}
+
+select{
+    appearance: none;
+    border: 2px solid #D20094;
+    border-radius: 220px;
+    padding: 0.5em;
+    background-color: #d2009300;
+    color: #E7E7EB;
+    font-weight: bold;
+}
+
+select option{
+    font-size: 0.8em;
+    text-align: center;
+    
+}
+
+
+
 /* fine css prima pagina */
 
 
