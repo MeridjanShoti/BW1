@@ -24,7 +24,7 @@ proceed.addEventListener('click', checkAndGo)
 
 if (window.location.href.match('test.html') != null) {
 
-  const questions = [];
+/*   const questions = [];
   const newArr = [] 
 
   fetch('https://opentdb.com/api.php?amount=10&category=18&difficulty=easy')
@@ -37,9 +37,9 @@ if (window.location.href.match('test.html') != null) {
     })
     .catch(error => {
       console.error('Errore durante il fetch:', error);
-    });
+    }); */
 
-    const questions1 = [
+    const questions = [
         {
           category: "Science: Computers",
           type: "multiple",
