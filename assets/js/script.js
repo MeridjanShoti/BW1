@@ -24,7 +24,22 @@ proceed.addEventListener('click', checkAndGo)
 
 if (window.location.href.match('test.html') != null) {
 
-    const questions = [
+  const questions = [];
+  const newArr = [] 
+
+  fetch('https://opentdb.com/api.php?amount=10&category=18&difficulty=easy')
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      questions.push(...data.results);  //Inserisce gli oggetti nel tuo array locale 
+      console.log(questions)
+    })
+    .catch(error => {
+      console.error('Errore durante il fetch:', error);
+    });
+
+    const questions1 = [
         {
           category: "Science: Computers",
           type: "multiple",
@@ -125,6 +140,8 @@ if (window.location.href.match('test.html') != null) {
       ];
 
 // Mischio l'array 
+
+console.log(questions)
 const shuffledObj = questions.sort((a, b) => 0.5 - Math.random());
 
 
