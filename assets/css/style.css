@@ -173,7 +173,14 @@ select{
 select option{
     font-size: 0.8em;
     text-align: center;
-    
+    color: #D20094;
+    background-color: #060a2d;
+}
+
+select:focus{
+    border: 2px solid #D20094;
+    outline: none;
+
 }
 
 
