@@ -310,23 +310,11 @@ function setCircleDasharray() {
     .getElementById("base-timer-path-remaining")
     .setAttribute("stroke-dasharray", circleDasharray);
 }
-//la funzione colora di verde la risposta giusta e la risposta selezionata, se è sbagliata, di rosso
-
-function funzioneCheColoraRisposte() {
-  //PSEUDOCODICE DA CONVERTIRE, le cose tutte in maiuscolo devo capire da dove prenderle
-  
-}
-  /*   else{
-      BOTTONERISPOSTASELEZIONATA.style.background = "linear gradient rosso"
-      BOTTONERISPOSTACORRETTA.style.background = "linear gradient verde"
-    }
-  }
-} */
 
 // Questa funzione controlla le risposte, resetta il timer, aggiunge un numero alla variabili giuste o sbagliate in base al confronto
+// Aggiunge anche i colori della risposta se esatta o errata
 function answer(a) {
   clearInterval(timerInterval);
-  console.log(a)
   if (a === questions[questionNumber].correct_answer ) {
     totAnswersCorrects +=1;
     //ho aggiunto un p direttamente dall'html con id feedback e cambia colore e contenuto a seconda della risposta
@@ -349,7 +337,6 @@ function answer(a) {
     for (element of form){
       if (element.innerText === questions[questionNumber].correct_answer){
         element.className = "green"
-        console.log(element.class)
       }
     }
   }
@@ -409,26 +396,6 @@ function highlightStars (value) {
         }
     });
 }
-/* stars.forEach (star => {
-  console.log(enable)
-  if(enable===true){
-    star.addEventListener('mouseover',() => {
-        highlightStars (star.dataset.value);
-    })
-  }
-})
-
-stars.addEventListener('click', () => {
-  
-     selectedValue = stars.dataset.value;
-    highlightStars(selectedValue); 
-    
-});
-
-stars.addEventListener('mouseout', () => {
-  enable = false
-}); */
-
 
 // Soluzione trovata (da verificare se va bene)
 
@@ -449,9 +416,6 @@ stars.forEach (star => {
   })
 })
 
-
-
-
 }
 //Fine Script Juliet
 
@@ -459,44 +423,30 @@ if (window.location.href.match('results.html') != null) {
 //giulio js//
 // Funzione per calcolare la percentuale e il conteggio
 const risposteGiuste = parseInt(localStorage.getItem("risposteGiuste"))
-  const risposteSbagliate = parseInt(localStorage.getItem("risposteSbagliate"))
-  let somma = risposteGiuste + risposteSbagliate
+const risposteSbagliate = parseInt(localStorage.getItem("risposteSbagliate"))
+let somma = risposteGiuste + risposteSbagliate
 function generaSummary() {
-  // Conta le risposte giuste e sbagliate
-  // Calcola le percentuali
-  const percentualeGiuste = (risposteGiuste / somma) * 100;
-  const percentualeSbagliate = (risposteSbagliate / somma) * 100;
+// Conta le risposte giuste e sbagliate
+// Calcola le percentuali
+const percentualeGiuste = (risposteGiuste / somma) * 100;
+const percentualeSbagliate = (risposteSbagliate / somma) * 100;
   
 
 
-  // Genera il summary
-  const summary = {
+// Genera il summary
+const summary = {
     totaleRisposte: somma,
     corrette: risposteGiuste,
     sbagliate: risposteSbagliate,
     percentualeCorrette: percentualeGiuste.toFixed(1), // 2 decimali
     percentualeSbagliate: percentualeSbagliate.toFixed(1) // 2 decimali
-  };
+};
 
   return summary;
 }
-/*let box=document.createElement('section');
-  let correct =document.querySelector('main div p');
-  correct.appendChild(box);
-  box.appendChild(percentualeGiuste);
-  let box1=document.createElement('section');
-  let nocorrect=document.getElementById("sbagliato");
-  nocorrect.appendChild(box1);
-  box1.appendChild(percentualeSbagliate);*/
 
 // Genera il summary
 const summary = generaSummary(somma);
-
-// Mostra il summary in console
-console.log("Summary delle risposte:");
-console.log(`Totale risposte: ${summary.totaleRisposte}`);
-console.log(`Corrette: ${summary.corrette} (${summary.percentualeCorrette}%)`);
-console.log(`Sbagliate: ${summary.sbagliate} (${summary.percentualeSbagliate}%)`);
 
 //chart meridjan
 
