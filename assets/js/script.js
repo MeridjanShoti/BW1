@@ -245,10 +245,11 @@ function setCircleDasharray() {
     .getElementById("base-timer-path-remaining")
     .setAttribute("stroke-dasharray", circleDasharray);
 }
+// Questa funzione converte stringhe contenenti apici
 function convertQuotesToEntities(inputString) {
   if (typeof inputString === 'string') {
     return inputString
-    .replace(/'/g, "&#039;") // Converte apici singoli
+    .replace(/'/g, "&#039;") 
   }
 }
 
