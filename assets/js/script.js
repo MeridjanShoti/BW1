@@ -24,7 +24,7 @@ proceed.addEventListener('click', checkAndGo)
 
 if (window.location.href.match('test.html') != null) {
 
-/*   const questions = [];
+  const questions = [];
   const newArr = [] 
 
   fetch('https://opentdb.com/api.php?amount=10&category=18&difficulty=easy')
@@ -33,13 +33,13 @@ if (window.location.href.match('test.html') != null) {
     })
     .then(data => {
       questions.push(...data.results);  //Inserisce gli oggetti nel tuo array locale 
-      console.log(questions)
+      addQuestion(0)
     })
     .catch(error => {
       console.error('Errore durante il fetch:', error);
-    }); */
+    });
 
-    const questions = [
+   /*  const questions = [
         {
           category: "Science: Computers",
           type: "multiple",
@@ -138,7 +138,7 @@ if (window.location.href.match('test.html') != null) {
           incorrect_answers: ["Python", "C", "Jakarta"],
         },
       ];
-
+ */
 // Mischio l'array 
 
 console.log(questions)
@@ -390,7 +390,7 @@ if (questionNumber === questions.length) {
 }
 
 // Alla'avvio della pagina parto subito con la prima domanda
-addQuestion(questionNumber);
+/* addQuestion(questionNumber); */
 
 }
 
