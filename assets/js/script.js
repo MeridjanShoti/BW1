@@ -432,8 +432,24 @@ stars.forEach (star => {
     }
   })
 })
+function feedback () {
+  let textarea = document.querySelector('textarea');
+  textarea.addEventListener ('keypress', function (e){
+    if (e.key === 'Enter') {
+      document.getElementById('textareafeedback').innerHTML = `<p id="lastparaph">Thank you for your feedback!</p>
+      <a href="https://www.epicode.com"><button class="neonButton"> MORE INFO </button></a>`
 
+
+
+
+    }
+   
+  })
 }
+feedback ()
+}
+
+
 //Fine Script Juliet
 
 if (window.location.href.match('results.html') != null) {
