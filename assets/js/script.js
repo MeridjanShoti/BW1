@@ -26,7 +26,7 @@ if (window.location.href.match('test.html') != null) {
 
   const questions = [];
   let difficulty = "easy" //quando gennaro scrive il codice togliamo l'assegnazione qui
-  let numeroDomande = 10 //anche qui
+  let numeroDomande = 48 //anche qui
 
 /*CODICE PER ASSEGNARE DIFFICULTY E NUMERO DI DOMANDE */
 
@@ -245,32 +245,38 @@ function setCircleDasharray() {
     .getElementById("base-timer-path-remaining")
     .setAttribute("stroke-dasharray", circleDasharray);
 }
+function convertQuotesToEntities(inputString) {
+  if (typeof inputString === 'string') {
+    return inputString
+    .replace(/'/g, "&#039;") // Converte apici singoli
+  }
+}
 
 // Questa funzione controlla le risposte, resetta il timer, aggiunge un numero alla variabili giuste o sbagliate in base al confronto
 // Aggiunge anche i colori della risposta se esatta o errata
 function answer(a) {
   clearInterval(timerInterval);
-  if (a === questions[questionNumber].correct_answer ) {
+  if (convertQuotesToEntities(a) === questions[questionNumber].correct_answer ) {
     totAnswersCorrects +=1;
     //ho aggiunto un p direttamente dall'html con id feedback e cambia colore e contenuto a seconda della risposta
-    document.getElementById("feedback").innerText = "Risposta corretta"
+    document.getElementById("feedback").innerText = "right answer"
     document.getElementById("feedback").style.color = "green"
     for (element of form){
-      if (element.innerText === questions[questionNumber].correct_answer){
+      if (convertQuotesToEntities(element.innerText) === questions[questionNumber].correct_answer){
         element.className = "green"
       }
     }
   } else {
     totAnswersWrongs +=1;
-    document.getElementById("feedback").innerText = "Risposta errata"
+    document.getElementById("feedback").innerText = "wrong answer"
     document.getElementById("feedback").style.color = "red"
       if (a !== undefined){
-      if (event.target.innerText !== questions[questionNumber].correct_answer){
+      if (convertQuotesToEntities(event.target.innerText) !== questions[questionNumber].correct_answer){
         event.target.className = "red"
       }
     }
     for (element of form){
-      if (element.innerText === questions[questionNumber].correct_answer){
+      if (convertQuotesToEntities(element.innerText) === questions[questionNumber].correct_answer){
         element.className = "green"
       }
     }
