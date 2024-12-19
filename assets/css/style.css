@@ -175,6 +175,7 @@ select option{
     text-align: center;
     color: #D20094;
     background-color: #060a2d;
+    border-radius: 10px;
 }
 
 select:focus{
