@@ -436,12 +436,10 @@ function feedback () {
   let textarea = document.querySelector('textarea');
   textarea.addEventListener ('keypress', function (e){
     if (e.key === 'Enter') {
-      document.getElementById('textareafeedback').innerHTML = `<p id="lastparaph">Thank you for your feedback!</p>
+      document.getElementById('textareafeedback').innerHTML = 
+      `<p id="lastparaph">Thank you for your feedback!</p> <br/>
       <a href="https://www.epicode.com"><button class="neonButton"> MORE INFO </button></a>`
-
-
-
-
+      document.getElementById("lastparaph").style.margin = "2em"
     }
    
   })
