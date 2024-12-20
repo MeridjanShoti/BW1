@@ -492,9 +492,6 @@ table:not(:first-child){
 .firsttd{
     font-weight: 900;
 }
-tr{
-    
-}
 td{
 border-bottom: 1px solid white;
 padding:1.5em;
