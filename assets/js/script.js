@@ -34,27 +34,68 @@ proceed.addEventListener('click', checkAndGo)
 if (window.location.href.match('test.html') != null) {
 
   const questions = [];
+  let randomize = ["easy", "medium", "hard"];
+  let mixed = []
   let difficulty = localStorage.getItem('difficulty')
   let numeroDomande = localStorage.getItem('numeroDomande')
   let numeroSecondi = 0
 /*CODICE PER ASSEGNARE DIFFICULTY E NUMERO DI DOMANDE */
 
+async function fetchQuestions() {
+  for (let i = 0; i < randomize.length; i++) {
+      try {
+          const response = await fetch(`https://opentdb.com/api.php?amount=35&category=18&difficulty=${randomize[i]}`);
+          if (!response.ok) {
+              if (response.status === 429) {
+                  console.error('Rate limit exceeded. Waiting...');
+                  await new Promise(resolve => setTimeout(resolve, 2000)); // Wait 1 second
+                  i--; // Retry the current request
+                  continue;
+              }
+              throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const data = await response.json();
+          mixed.push(...data.results);
+          pushQuestions(i);
+      } catch (error) {
+          console.error('Error fetching questions:', error);
+      }
+      await new Promise(resolve => setTimeout(resolve, 500)); // Wait 0.5 seconds between requests
+  }
+}
+
+
+
+if (difficulty === "random"){
+  /* for (let i = 0; i<randomize.length; i++){
+  fetch(`https://opentdb.com/api.php?amount=35&category=18&difficulty=${randomize[i]}`)
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      mixed.push(...data.results);  //Inserisce gli oggetti nel tuo array locale 
+      pushQuestions(i)
+    })
+    .catch(error => {
+      console.error('Errore durante il fetch:', error);
+    });
+  } */
+    fetchQuestions();
+}
+else{
   switch(difficulty){
   case "easy": 
         difficulty = "easy"
-        numeroSecondi = 30
     break;
   case "medium": 
         difficulty = "medium"
-        numeroSecondi = 45
     break;
   case "hard": 
         difficulty = "hard"
-        numeroSecondi = 60
     break;
-    } 
+  } 
 
-
+  
 
   fetch(`https://opentdb.com/api.php?amount=${numeroDomande}&category=18&difficulty=${difficulty}`)
     .then(response => {
@@ -67,9 +108,15 @@ if (window.location.href.match('test.html') != null) {
     .catch(error => {
       console.error('Errore durante il fetch:', error);
     });
-
+  }
 // Mischio l'array 
-
+function pushQuestions(n){
+  const shuffledMix = mixed.sort((a, b) => 0.5 - Math.random());
+  for (let i = 0; i<numeroDomande; i++){
+    questions.push(mixed[i])
+  }
+  addQuestion(0)
+}
 console.log(questions)
 const shuffledObj = questions.sort((a, b) => 0.5 - Math.random());
 
@@ -153,6 +200,13 @@ const color_codes = {
 };
 
 // Imposto il tempo per ogni domanda
+switch(questions[n].difficulty){
+  case "easy": numeroSecondi = 30
+    break;
+  case "medium": numeroSecondi = 45
+    break;
+  case "hard": numeroSecondi = 60
+}
 const time_limit = numeroSecondi;
 let timePassed = 0;
 let timeLeft = time_limit;
@@ -268,6 +322,10 @@ function convertQuotesToEntities(inputString) {
 // Aggiunge anche i colori della risposta se esatta o errata
 function answer(a) {
   clearInterval(timerInterval);
+  localStorage.setItem(questionNumber + "yourAnswer", a)
+  localStorage.setItem(questionNumber + "correctAnswer", questions[questionNumber].correct_answer)
+  localStorage.setItem(questionNumber + "question", questions[questionNumber].question)
+
   if (convertQuotesToEntities(a) === questions[questionNumber].correct_answer ) {
     totAnswersCorrects +=1;
     //ho aggiunto un p direttamente dall'html con id feedback e cambia colore e contenuto a seconda della risposta
@@ -454,3 +512,26 @@ const summary = generaSummary(somma);
 
 }
 
+if (window.location.href.match('resume.html') != null) {
+let TotalQuestions = parseInt(localStorage.getItem("numeroDomande"))
+let table = document.querySelector("table")
+let domanda = "question"
+let tuaRisposta = "yourAnswer"
+let rispostaGiusta = "correctAnswer"
+for (let i = 0; i<TotalQuestions; i++){
+  /* localStorage.getItem(`${i}yourAnswer`)
+  console.log(localStorage.getItem(`${i}yourAnswer`).slice(1) ) */
+  let tr = document.createElement("tr")
+  tr.innerHTML = 
+  `<td class="firsttd">${i+1}</td>
+  <td> ${localStorage.getItem(i + domanda)} </td>
+  <td> ${localStorage.getItem(i + tuaRisposta)} </td>
+  <td> ${localStorage.getItem(i + rispostaGiusta)} </td>`
+  table.appendChild(tr)
+}
+for (let i = 0; i<document.querySelectorAll("td").length; i++){
+  if (document.querySelectorAll("td")[i].innerText === "undefined"){
+    document.querySelectorAll("td")[i].innerText = "no answer"
+  }
+}
+}

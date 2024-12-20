@@ -482,3 +482,23 @@ text-align: center;
     font-weight: lighter;
     font-size: 0.9em;
 }
+table{
+margin: 5em auto;
+}
+table:not(:first-child){
+    width: 70%;
+}
+.firsttd{
+    font-weight: 900;
+}
+tr{
+    
+}
+td{
+border-bottom: 1px solid white;
+padding:1.5em;
+}
+th{
+    font-weight: 900;
+    font-size: 1.2em;
+}
