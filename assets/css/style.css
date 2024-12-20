@@ -420,15 +420,16 @@ h1,h2{
 .big{
     font-size: 5em;
 }
-#buttonM {
+.buttonM {
     border-color: #E7E7EB;
     background-color: #00000000;
     padding: 0.7em 3em;
     color: #E7E7EB;
     font-weight: 700;
     font-size: 1.5em;
-    margin: auto;
+    margin: 0.5em;
     border-style: solid;
+    width: 14em;
 }
 
 .positionA{
