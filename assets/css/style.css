@@ -491,12 +491,14 @@ table:not(:first-child){
 }
 .firsttd{
     font-weight: 900;
+    color: #00FFFF;
 }
 td{
-border-bottom: 1px solid white;
+border-bottom: 2px solid #ff0080;
 padding:1.5em;
 }
 th{
     font-weight: 900;
     font-size: 1.2em;
+    padding-bottom: 1em;
 }

@@ -34,53 +34,31 @@ proceed.addEventListener('click', checkAndGo)
 if (window.location.href.match('test.html') != null) {
 
   const questions = [];
-  let randomize = ["easy", "medium", "hard"];
+  let randomize = ["easy","medium"];
   let mixed = []
   let difficulty = localStorage.getItem('difficulty')
   let numeroDomande = localStorage.getItem('numeroDomande')
   let numeroSecondi = 0
 /*CODICE PER ASSEGNARE DIFFICULTY E NUMERO DI DOMANDE */
 
-async function fetchQuestions() {
-  for (let i = 0; i < randomize.length; i++) {
-      try {
-          const response = await fetch(`https://opentdb.com/api.php?amount=35&category=18&difficulty=${randomize[i]}`);
-          if (!response.ok) {
-              if (response.status === 429) {
-                  console.error('Rate limit exceeded. Waiting...');
-                  await new Promise(resolve => setTimeout(resolve, 2000)); // Wait 1 second
-                  i--; // Retry the current request
-                  continue;
-              }
-              throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          const data = await response.json();
-          mixed.push(...data.results);
-          pushQuestions(i);
-      } catch (error) {
-          console.error('Error fetching questions:', error);
-      }
-      await new Promise(resolve => setTimeout(resolve, 500)); // Wait 0.5 seconds between requests
-  }
-}
-
-
-
 if (difficulty === "random"){
-  /* for (let i = 0; i<randomize.length; i++){
-  fetch(`https://opentdb.com/api.php?amount=35&category=18&difficulty=${randomize[i]}`)
-    .then(response => {
-      return response.json();
-    })
-    .then(data => {
-      mixed.push(...data.results);  //Inserisce gli oggetti nel tuo array locale 
-      pushQuestions(i)
-    })
-    .catch(error => {
-      console.error('Errore durante il fetch:', error);
-    });
-  } */
-    fetchQuestions();
+/*
+  Codice che volevamo utilizzare per più chiamate ma che non è permesso dal server opentdb
+
+
+  const request1 = fetch('https://mail.infosyscap.net/epicode-test/easy.json').then(response => response.json());
+  const request2 = fetch('https://mail.infosyscap.net/epicode-test/medium.json').then(response => response.json());
+  const request3 = fetch('https://mail.infosyscap.net/epicode-test/hard.json').then(response => response.json());
+  Promise.all([request1, request2, request3])
+  .then(([data1, data2, data3]) => {
+    console.log(data1, data2, data3);
+    mixed = [...data1.results, ...data2.results, ...data3.results];
+    pushQuestions(0)
+  })
+  .catch(error => {
+    console.error(error);
+  });*/
+
 }
 else{
   switch(difficulty){
