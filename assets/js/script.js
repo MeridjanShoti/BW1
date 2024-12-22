@@ -42,13 +42,11 @@ if (window.location.href.match('test.html') != null) {
 /*CODICE PER ASSEGNARE DIFFICULTY E NUMERO DI DOMANDE */
 
 if (difficulty === "random"){
-/*
-  Codice che volevamo utilizzare per più chiamate ma che non è permesso dal server opentdb
 
 
-  const request1 = fetch('https://mail.infosyscap.net/epicode-test/easy.json').then(response => response.json());
-  const request2 = fetch('https://mail.infosyscap.net/epicode-test/medium.json').then(response => response.json());
-  const request3 = fetch('https://mail.infosyscap.net/epicode-test/hard.json').then(response => response.json());
+  const request1 = fetch('./assets/epicode-test/easy.json').then(response => response.json());
+  const request2 = fetch('./assets/epicode-test/medium.json').then(response => response.json());
+  const request3 = fetch('./assets/epicode-test/hard.json').then(response => response.json());
   Promise.all([request1, request2, request3])
   .then(([data1, data2, data3]) => {
     console.log(data1, data2, data3);
@@ -57,7 +55,7 @@ if (difficulty === "random"){
   })
   .catch(error => {
     console.error(error);
-  });*/
+  });
 
 }
 else{
